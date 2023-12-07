@@ -1,0 +1,1289 @@
+<?xml version="1.0"?><robot name="tetra">
+	<link name="carbon1">
+		<inertial>
+			<mass value="0.0001"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+			<material name="magenta">
+				<color rgba="1 0 1 1"/>
+			</material>
+		</visual>
+	</link>
+	<link name="carbon2">
+		<inertial>
+			<mass value="0.0001"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+			<material name="magenta">
+				<color rgba="1 0 1 1"/>
+			</material>
+		</visual>
+	</link>
+	<joint name="joint1" type="fixed">
+		<parent link="carbon1"/>
+		<child link="carbon2"/>
+		<origin rpy="0 -1.910633236249 0" xyz="0 0 0"/>
+	</joint>
+	<link name="carbon3">
+		<inertial>
+			<mass value="0.0001"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+			<material name="magenta">
+				<color rgba="1 0 1 1"/>
+			</material>
+		</visual>
+	</link>
+	<joint name="joint2" type="fixed">
+		<parent link="carbon1"/>
+		<child link="carbon3"/>
+		<origin rpy="0 -1.910633236249 2.0943951023932" xyz="0 0 0"/>
+	</joint>
+	<link name="carbon4">
+		<inertial>
+			<mass value="0.0001"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+		<visual>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+			<material name="magenta">
+				<color rgba="1 0 1 1"/>
+			</material>
+		</visual>
+	</link>
+	<joint name="joint3" type="fixed">
+		<parent link="carbon1"/>
+		<child link="carbon4"/>
+		<origin rpy="0 -1.910633236249 4.1887902047864" xyz="0 0 0"/>
+	</joint>
+	<link name="rot1">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight1">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j1" type="revolute">
+		<parent link="carbon1"/>
+		<child link="rot1"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j2" type="revolute">
+		<parent link="rot1"/>
+		<child link="weight1"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot2">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight2">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j3" type="revolute">
+		<parent link="weight1"/>
+		<child link="rot2"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j4" type="revolute">
+		<parent link="rot2"/>
+		<child link="weight2"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot3">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight3">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j5" type="revolute">
+		<parent link="weight2"/>
+		<child link="rot3"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j6" type="revolute">
+		<parent link="rot3"/>
+		<child link="weight3"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot4">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight4">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j7" type="revolute">
+		<parent link="weight3"/>
+		<child link="rot4"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j8" type="revolute">
+		<parent link="rot4"/>
+		<child link="weight4"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot5">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight5">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j9" type="revolute">
+		<parent link="weight4"/>
+		<child link="rot5"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j10" type="revolute">
+		<parent link="rot5"/>
+		<child link="weight5"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot6">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight6">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j11" type="revolute">
+		<parent link="weight5"/>
+		<child link="rot6"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j12" type="revolute">
+		<parent link="rot6"/>
+		<child link="weight6"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot7">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight7">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j13" type="revolute">
+		<parent link="weight6"/>
+		<child link="rot7"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j14" type="revolute">
+		<parent link="rot7"/>
+		<child link="weight7"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot8">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight8">
+		<visual>
+			<geometry>
+				<mesh filename="walkman4.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman4.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j15" type="revolute">
+		<parent link="weight7"/>
+		<child link="rot8"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j16" type="revolute">
+		<parent link="rot8"/>
+		<child link="weight8"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot9">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight9">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j17" type="revolute">
+		<parent link="carbon2"/>
+		<child link="rot9"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j18" type="revolute">
+		<parent link="rot9"/>
+		<child link="weight9"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot10">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight10">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j19" type="revolute">
+		<parent link="weight9"/>
+		<child link="rot10"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j20" type="revolute">
+		<parent link="rot10"/>
+		<child link="weight10"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot11">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight11">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j21" type="revolute">
+		<parent link="weight10"/>
+		<child link="rot11"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j22" type="revolute">
+		<parent link="rot11"/>
+		<child link="weight11"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot12">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight12">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j23" type="revolute">
+		<parent link="weight11"/>
+		<child link="rot12"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j24" type="revolute">
+		<parent link="rot12"/>
+		<child link="weight12"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot13">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight13">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j25" type="revolute">
+		<parent link="weight12"/>
+		<child link="rot13"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j26" type="revolute">
+		<parent link="rot13"/>
+		<child link="weight13"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot14">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight14">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j27" type="revolute">
+		<parent link="weight13"/>
+		<child link="rot14"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j28" type="revolute">
+		<parent link="rot14"/>
+		<child link="weight14"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot15">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight15">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j29" type="revolute">
+		<parent link="weight14"/>
+		<child link="rot15"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j30" type="revolute">
+		<parent link="rot15"/>
+		<child link="weight15"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot16">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight16">
+		<visual>
+			<geometry>
+				<mesh filename="walkman3.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman3.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j31" type="revolute">
+		<parent link="weight15"/>
+		<child link="rot16"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j32" type="revolute">
+		<parent link="rot16"/>
+		<child link="weight16"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot17">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight17">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j33" type="revolute">
+		<parent link="carbon3"/>
+		<child link="rot17"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j34" type="revolute">
+		<parent link="rot17"/>
+		<child link="weight17"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot18">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight18">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j35" type="revolute">
+		<parent link="weight17"/>
+		<child link="rot18"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j36" type="revolute">
+		<parent link="rot18"/>
+		<child link="weight18"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot19">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight19">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j37" type="revolute">
+		<parent link="weight18"/>
+		<child link="rot19"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j38" type="revolute">
+		<parent link="rot19"/>
+		<child link="weight19"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot20">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight20">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j39" type="revolute">
+		<parent link="weight19"/>
+		<child link="rot20"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j40" type="revolute">
+		<parent link="rot20"/>
+		<child link="weight20"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot21">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight21">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j41" type="revolute">
+		<parent link="weight20"/>
+		<child link="rot21"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j42" type="revolute">
+		<parent link="rot21"/>
+		<child link="weight21"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot22">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight22">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j43" type="revolute">
+		<parent link="weight21"/>
+		<child link="rot22"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j44" type="revolute">
+		<parent link="rot22"/>
+		<child link="weight22"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot23">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight23">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j45" type="revolute">
+		<parent link="weight22"/>
+		<child link="rot23"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j46" type="revolute">
+		<parent link="rot23"/>
+		<child link="weight23"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot24">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight24">
+		<visual>
+			<geometry>
+				<mesh filename="walkman5.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman5.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j47" type="revolute">
+		<parent link="weight23"/>
+		<child link="rot24"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j48" type="revolute">
+		<parent link="rot24"/>
+		<child link="weight24"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot25">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight25">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j49" type="revolute">
+		<parent link="carbon4"/>
+		<child link="rot25"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j50" type="revolute">
+		<parent link="rot25"/>
+		<child link="weight25"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot26">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight26">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j51" type="revolute">
+		<parent link="weight25"/>
+		<child link="rot26"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j52" type="revolute">
+		<parent link="rot26"/>
+		<child link="weight26"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot27">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight27">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j53" type="revolute">
+		<parent link="weight26"/>
+		<child link="rot27"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j54" type="revolute">
+		<parent link="rot27"/>
+		<child link="weight27"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot28">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight28">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j55" type="revolute">
+		<parent link="weight27"/>
+		<child link="rot28"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j56" type="revolute">
+		<parent link="rot28"/>
+		<child link="weight28"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot29">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight29">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j57" type="revolute">
+		<parent link="weight28"/>
+		<child link="rot29"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j58" type="revolute">
+		<parent link="rot29"/>
+		<child link="weight29"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot30">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight30">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j59" type="revolute">
+		<parent link="weight29"/>
+		<child link="rot30"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j60" type="revolute">
+		<parent link="rot30"/>
+		<child link="weight30"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot31">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight31">
+		<visual>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j61" type="revolute">
+		<parent link="weight30"/>
+		<child link="rot31"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j62" type="revolute">
+		<parent link="rot31"/>
+		<child link="weight31"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+	<link name="rot32">
+		<inertial>
+			<mass value="0"/>
+			<inertia izz="0" iyz="0" ixy="0" ixz="0" ixx="0" iyy="0"/>
+		</inertial>
+	</link>
+	<link name="weight32">
+		<visual>
+			<geometry>
+				<mesh filename="walkman6.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="walkman6.obj" scale="0.41666666666667 0.41666666666667 1"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+			<inertia izz="0.045" iyz="0" ixy="0" ixz="0" ixx="0.023333333333333" iyy="0.023333333333333"/>
+		</inertial>
+	</link>
+	<joint name="j63" type="revolute">
+		<parent link="weight31"/>
+		<child link="rot32"/>
+		<axis xyz="0 1 0"/>
+		<limit effort="1000" velocity="0.5" lower="-0.39269908169872" upper="0.39269908169872"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	</joint>
+	<joint name="j64" type="revolute">
+		<parent link="rot32"/>
+		<child link="weight32"/>
+		<axis xyz="1 0 0"/>
+		<limit effort="1000" velocity="3" lower="-0.39269908169872" upper="0.39269908169872"/>
+	</joint>
+</robot>
